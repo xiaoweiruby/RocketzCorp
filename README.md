@@ -9,8 +9,9 @@ git add .
 git commit -m "first commit"
 ```
 ---
-```
+
 第二部分：本地查看新的专案
+```
 atom .
 rails server
 http://localhost:3000/
