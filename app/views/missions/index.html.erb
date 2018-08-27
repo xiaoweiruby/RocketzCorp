@@ -1,41 +1,34 @@
-<p id="notice"><%= notice %></p>
+<section class="container">
+  <div class="row">
+    <div class="col-md-12">
+    </div><!-- .col-md-12 -->
+  </div><!-- .row -->
 
-<h1>Missions</h1>
+<div class="row">
+  <% @missions.each do |mission| %>
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-topper">
+      <% if mission.picone.present? %>
+      <%= image_tag mission.picone.url(:thumb), stle:"width:100%;" %>
+      <% else %>
+      No Image
+      <% end %>
+    </div><!-- .card-topper -->
+    <div class="card-block">
+        <h4 class="card-title"><%= mission.boxtitle %></h4>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Subtitle</th>
-      <th>Boxtitle</th>
-      <th></th>
-      <th>Boxinfo</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @missions.each do |mission| %>
-      <tr>
-        <td><%= mission.title %></td>
-        <td>
-          <% if mission.picone.present? %>
-          <% image_tag mission.picone.url(:thumb) %>
-          <% else %>
-          No Image
-          <% end %>
-        </td>
-        <td><%= mission.subtitle %></td>
-        <td><%= mission.boxtitle %></td>
-        <td><%= mission.boxinfo %></td>
-        <td><%= link_to 'Show', mission %></td>
+        <td><%= link_to 'LEADL MORE', mission %></td>
         <td><%= link_to 'Edit', edit_mission_path(mission) %></td>
         <td><%= link_to 'Destroy', mission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      </div><!-- .card-block -->
+    </div><!-- .card -->
+    </div><!-- .col-md-4 -->
 
-<br>
+    <% end %>
+</div><!-- .row -->
+
+
 
 <%= link_to 'New Mission', new_mission_path %>
+</section>

@@ -1,5 +1,13 @@
 # Build a Space X clone
 
+SESSION 1
+```
+Will use the Terminal and Atom as text editor
+Build the basic functionality
+Use Scaffold to easily create contriller，model，views，routes， and migration files。
+Copy gemfiles from in the description below
+Need ffmpeg and imagemagick installed for video audio and image processing
+```
 第一部分：本地构建一个新的专案
 ```
 rails new RocketzCorp
@@ -219,3 +227,147 @@ app/views/missions/show.html.erb
 2、图片每户的功能体系
 
 以上的两个功能是最基础的功能体系，后续的所有的功能体系，都是在这个功能体系的维度上不断的叠加的结果。
+
+SESSION 1b
+```
+Creating and styling the boxes
+Edit Bootstrap card properties
+Add Navigation partial and Navigation bar
+First real Git Commit
+```
+
+在第二个部分完成的基本首页的页面的美化以及完成导航条的引入；
+
+app/views/shared/-navigation.html.erb
+```
+```
+
+app/views/layouts/application.html.erb
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RocketzCorp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render 'shared/navigation' %>
+    <%= yield %>
+  </body>
+</html>
+```
+
+app/assets/stylesheets/application.scss
+```
+@import "bootstrap";
+@import "missions";
+
+body{
+ min-hright: 75rem;
+ padding-top: 3.5rem;
+}
+
+.bg-dark
+{
+  background-color: #050505;
+}
+```
+
+app/assets/stylesheets/missions.scss
+```
+.card
+{
+  -webkit-box-shadow: 0 1px 5px 0 rgba(0,0,0,0.30);
+  -moz-box-shadow: 0 1px 5px 0 rgba(0,0,0,0.30);
+  -ms-box-shadow:0 1px 5px 0 rgba(0,0,0,0.30);
+  -o-box-shadow:0 1px 5px 0 rgba(0,0,0,0.30);
+  box-shadow:0 1px 5px 0 rgba(0,0,0,0.30);
+  padding:6%;
+}
+
+
+.card-title
+{
+  padding-top: 1rem;
+  text-transform: uppercase;
+}
+```
+
+针对于页面的修改，主要在 idnex、show、edit、new以及form的表单上完成样式的修改；
+```
+<section class="container">
+  <div class="row">
+    <div class="col-md-12">
+    </div><!-- .col-md-12 -->
+  </div><!-- .row -->
+
+<div class="row">
+  <% @missions.each do |mission| %>
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-topper">
+      <% if mission.picone.present? %>
+      <%= image_tag mission.picone.url(:thumb), stle:"width:100%;" %>
+      <% else %>
+      No Image
+      <% end %>
+    </div><!-- .card-topper -->
+    <div class="card-block">
+        <h4 class="card-title"><%= mission.boxtitle %></h4>
+
+        <td><%= link_to 'LEADL MORE', mission %></td>
+        <td><%= link_to 'Edit', edit_mission_path(mission) %></td>
+        <td><%= link_to 'Destroy', mission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </div><!-- .card-block -->
+    </div><!-- .card -->
+    </div><!-- .col-md-4 -->
+
+    <% end %>
+</div><!-- .row -->
+
+
+
+<%= link_to 'New Mission', new_mission_path %>
+</section>
+```
+app/views/missions/show.html.erb
+```
+<section class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @mission.title %>
+</p>
+
+<p>
+  <strong>Subtitle:</strong>
+  <%= @mission.subtitle %>
+</p>
+
+<p>
+  <strong>Boxtitle:</strong>
+  <% if @mission.picone.present? %>
+  <%= image_tag（@mission.picone.(:medium)) %>
+  <% else %>
+  No Image
+  <% end %>
+</p>
+
+<p>
+  <strong>Boxinfo:</strong>
+  <%= @mission.boxinfo %>
+</p>
+
+<%= link_to 'Edit', edit_mission_path(@mission) %> |
+<%= link_to 'Back', missions_path %>
+
+</div><!-- .col-md-12 -->
+</div><!-- .row -->
+```
