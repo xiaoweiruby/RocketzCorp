@@ -15,3 +15,14 @@
  */
 
 @import "bootstrap";
+@import "missions";
+
+body{
+ min-hright: 75rem;
+ padding-top: 3.5rem;
+}
+
+.bg-dark
+{
+  background-color: #050505;
+}
