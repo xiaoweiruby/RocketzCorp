@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Missions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Subtitle</th>
+      <th>Boxtitle</th>
+      <th></th>
+      <th>Boxinfo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @missions.each do |mission| %>
+      <tr>
+        <td><%= mission.title %></td>
+        <td>
+          <% if mission.picone.present? %>
+          <% image_tag mission.picone.url(:thumb) %>
+          <% else %>
+          No Image
+          <% end %>
+        </td>
+        <td><%= mission.subtitle %></td>
+        <td><%= mission.boxtitle %></td>
+        <td><%= mission.boxinfo %></td>
+        <td><%= link_to 'Show', mission %></td>
+        <td><%= link_to 'Edit', edit_mission_path(mission) %></td>
+        <td><%= link_to 'Destroy', mission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mission', new_mission_path %>

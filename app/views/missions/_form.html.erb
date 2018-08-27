@@ -1,0 +1,43 @@
+<%= form_with(model: mission, local: true, html: {multipart: true}) do |form| %>
+  <% if mission.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(mission.errors.count, "error") %> prohibited this mission from being saved:</h2>
+
+      <ul>
+      <% mission.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :mission_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :subtitle %>
+    <%= form.text_field :subtitle, id: :mission_subtitle %>
+  </div>
+
+  <div class="field">
+    <%= form.label :boxtitle %>
+    <%= form.text_field :boxtitle, id: :mission_boxtitle %>
+  </div>
+
+  <div class="field">
+    <%= form.label :picone %>
+    <%= form.text_field :picone %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :boxinfo %>
+    <%= form.text_area :boxinfo, id: :mission_boxinfo %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
