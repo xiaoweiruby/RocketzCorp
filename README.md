@@ -238,8 +238,45 @@ First real Git Commit
 
 在第二个部分完成的基本首页的页面的美化以及完成导航条的引入；
 
+https://www.bootstrapdash.com/bootstrap-4-tutorial/navbar/
+
 app/views/shared/-navigation.html.erb
 ```
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">SuperxSchool</a>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home
+          <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      <li >
+        <a class="nav-link dropdown-toggle" href="http://superxschool.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown link
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Action 1</a>
+          <a class="dropdown-item" href="#">Action 2</a>
+          <a class="dropdown-item" href="#">Action 3</a>
+        </div>
+      </li>
+    </li>
+  </ul>
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+    <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</div>
+</nav>
+
 ```
 
 app/views/layouts/application.html.erb
@@ -371,3 +408,9 @@ app/views/missions/show.html.erb
 </div><!-- .col-md-12 -->
 </div><!-- .row -->
 ```
+
+SESSION 2
+Style the input form for the boxes
+Add links in ruby ti the Navigation banner
+Fun Astronomical Fact
+Git Commit in the end
