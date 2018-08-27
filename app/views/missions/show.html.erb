@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @mission.title %>
+</p>
+
+<p>
+  <strong>Subtitle:</strong>
+  <%= @mission.subtitle %>
+</p>
+
+<p>
+  <strong>Boxtitle:</strong>
+  <% if @mission.picone.present? %>
+  <%= image_tag（@mission.picone.(:medium)) %>
+  <% else %>
+  No Image
+  <% end %>
+</p>
+
+<p>
+  <strong>Boxinfo:</strong>
+  <%= @mission.boxinfo %>
+</p>
+
+<%= link_to 'Edit', edit_mission_path(@mission) %> |
+<%= link_to 'Back', missions_path %>
