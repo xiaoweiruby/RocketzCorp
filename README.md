@@ -414,3 +414,5 @@ Style the input form for the boxes
 Add links in ruby ti the Navigation banner
 Fun Astronomical Fact
 Git Commit in the end
+
+主要是做导航条的修改；
