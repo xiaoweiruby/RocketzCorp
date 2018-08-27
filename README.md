@@ -1,24 +1,21 @@
-# README
+# Build a Space X clone
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+第一部分：本地构建一个新的专案
 
-Things you may want to cover:
+rails new RocketzCorp
+cd RocketzCorp
+git init
+git add .
+git commit -m "first commit"
+---
 
-* Ruby version
+atom .
+rails server
+http://localhost:3000/
 
-* System dependencies
+---
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+第三部分：云端构建一个新的专案
+git remote add origin https://github.com/shenzhoudance/RocketzCorp.git
+git push -u origin master
+---
