@@ -1,0 +1,30 @@
+.footer{
+  background-color: #121212;
+  padding-top: 3rem;
+  width:100%;
+  min-height: 150px;
+  line-height: 60px;
+}
+
+.footer a{
+  border-bottom: 1 px solid transparent;
+  -webkit-transition-border: border 0.2s ease;
+  -moz-transition-border: border 0.2s ease;
+  -ms-transition-border: border 0.2s ease;
+  -o-transition-border: border 0.2s ease;
+}
+
+.footer a:hover{
+  text-decoration: none;
+  border-bottom-color: #00eeff;
+}
+
+.border_bottom{
+  border-bottom: 0px dashed #444444;
+  margin-bottom: 1rem;
+}
+
+.btn-outline-info{
+  border:#030303;
+  background-color: #050505;
+}

@@ -238,8 +238,45 @@ First real Git Commit
 
 在第二个部分完成的基本首页的页面的美化以及完成导航条的引入；
 
+https://www.bootstrapdash.com/bootstrap-4-tutorial/navbar/
+
 app/views/shared/-navigation.html.erb
 ```
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">SuperxSchool</a>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home
+          <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      <li >
+        <a class="nav-link dropdown-toggle" href="http://superxschool.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown link
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Action 1</a>
+          <a class="dropdown-item" href="#">Action 2</a>
+          <a class="dropdown-item" href="#">Action 3</a>
+        </div>
+      </li>
+    </li>
+  </ul>
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+    <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</div>
+</nav>
+
 ```
 
 app/views/layouts/application.html.erb
@@ -371,3 +408,94 @@ app/views/missions/show.html.erb
 </div><!-- .col-md-12 -->
 </div><!-- .row -->
 ```
+
+SESSION 2
+Style the input form for the boxes
+Add links in ruby ti the Navigation banner
+Fun Astronomical Fact
+Git Commit in the end
+
+主要是做导航条的修改；
+
+
+SESSION 3
+
+Add footer with footer partial
+bootstrap styling plus some custom
+put in search and newsletter sign up forms
+(will add ruby code next time)
+
+app/views/shared/-footer.html.erb
+```
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+      </div>
+      <!-- .col-lg-3 -->
+
+      <div class="col-lg-3">
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+      </div>
+      <!-- .col-lg-3 -->
+
+      <div class="col-lg-3">
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+      </div>
+      <!-- .col-lg-3 -->
+
+    </div>
+    <!-- .row -->
+    <div class="row top-margin bottom-margin">
+      <div class="col-lg-6">
+        <form class="form-inline mt-2 mt-md-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="sign up for latest news" aria-label="newsletter">
+          <button class="btn btn-outline-info my-2 my-sm-0" type="submit">sunmit</button>
+        </form>
+      </div>  <!-- .col-lg-6 -->
+      <div class="col-lg-6">
+        <form class="form-inline mt-2 mt-md-0 floatr">
+          <input class="form-control mr-sm-2 bg-dark" type="text" placeholder="sign up for latest news" aria-label="newsletter">
+          <button class="btn btn-outline-info my-2 my-sm-0" type="submit">search</button>
+        </form>
+      </div> <!-- .col-lg-6 -->
+       </div> <!-- row top-margin -->
+    </div>  <!-- .container -->
+    <section class="bg-dark">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <span color="#eeeeee">
+              FOLLOW US : TWITTER | FACEBOOK | YOUTUBE
+              <span></div>
+              <!-- .col-lg-6 -->
+              <div class="col-lg-6">
+                <span color="#eeeeee">
+                  2018 &copy SuperxSchool
+                  <span></div>
+                  <!-- .col-lg-6 -->
+
+                </footer>
+
+```
+
+SESSION 4
+set up search functionality
+search：route，search template，controller，model；
+changesearch form to ruby syntax
+add custom counter for number of mission articles
+matching the search input
+complete an exercise for counter to next time
