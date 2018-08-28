@@ -4,7 +4,7 @@ class MissionsController < ApplicationController
   # GET /missions
   # GET /missions.json
   def index
-    @missions = Mission.all
+    @missions = Mission.all.order("created_at DESC".LIMIT(3))
   end
 
   # GET /missions/1
@@ -12,6 +12,13 @@ class MissionsController < ApplicationController
   def show
   end
 
+  def search
+    if params[:search].block?
+      @mission = Mission.all.order("created_at DESC".LIMIT(20))
+    else
+     @mission = Mission.search(params)
+    end
+  end
   # GET /missions/new
   def new
     @mission = Mission.new

@@ -38,10 +38,18 @@
         </form>
       </div>  <!-- .col-lg-6 -->
       <div class="col-lg-6">
-        <form class="form-inline mt-2 mt-md-0 floatr">
+       <div class="form-inline mt-2 mt-md-0 floatr">
+         <% form_tag search_missions_path, method: :get do %>
+         <% text_field_tag :search, nil, placeholder: "seacrch rocketz",
+            class:"form-control mr-sm-2 bg-dark" %>
+         <%= submit_tag "search", class:"btn btn-outline-info my-2 my-sm-0" %>
+         <% end %>
+       </div>
+
+        <!--<form class="form-inline mt-2 mt-md-0 floatr">
           <input class="form-control mr-sm-2 bg-dark" type="text" placeholder="sign up for latest news" aria-label="newsletter">
           <button class="btn btn-outline-info my-2 my-sm-0" type="submit">search</button>
-        </form>
+        </form> -->
       </div> <!-- .col-lg-6 -->
        </div> <!-- row top-margin -->
     </div>  <!-- .container -->

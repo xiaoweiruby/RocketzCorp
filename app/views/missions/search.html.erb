@@ -1,0 +1,35 @@
+<section class="container">
+  <div class="row">
+    <div class="col"></div>
+      <div class="col-md-10" style="margin-bottom:1rem;">
+        <h2 style="margin-top:2rem;"><u>Your search result</u></h2>
+        <table class="table table-hover table-striped table-responsive">
+          <thead>
+
+          </thead>
+
+          <tbody>
+            <% c = 0 %>
+            <% @missions.each do |mission| %>
+            <tr>
+              <td>
+                <% if mission.picone.present? %>
+                <%= image_tag mission.picone.url(:thumb), stle:"width:100%;" %>
+                <% else %>
+                No Image
+                <% end %>
+              </td>
+              <td><%= mission.boxtitle %></td>
+              <td><%= truncate(mission.boxinfo, length:100) %></td>
+              <td><%= link_to 'LEADL MORE', mission %></td>
+            </tr>
+            <% c = c + 1 %>
+            <% end %>
+            <h4> there are <%= c %> containing your search! </h4>
+          </tbody>
+        </table>
+
+      </div><!-- .col-md-10 -->
+      <div class="col"></div>
+    </div><!-- row -->
+</section>
