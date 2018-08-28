@@ -416,3 +416,86 @@ Fun Astronomical Fact
 Git Commit in the end
 
 主要是做导航条的修改；
+
+
+SESSION 3
+
+Add footer with footer partial
+bootstrap styling plus some custom
+put in search and newsletter sign up forms
+(will add ruby code next time)
+
+app/views/shared/-footer.html.erb
+```
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+      </div>
+      <!-- .col-lg-3 -->
+
+      <div class="col-lg-3">
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+      </div>
+      <!-- .col-lg-3 -->
+
+      <div class="col-lg-3">
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+      </div>
+      <!-- .col-lg-3 -->
+
+    </div>
+    <!-- .row -->
+    <div class="row top-margin bottom-margin">
+      <div class="col-lg-6">
+        <form class="form-inline mt-2 mt-md-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="sign up for latest news" aria-label="newsletter">
+          <button class="btn btn-outline-info my-2 my-sm-0" type="submit">sunmit</button>
+        </form>
+      </div>  <!-- .col-lg-6 -->
+      <div class="col-lg-6">
+        <form class="form-inline mt-2 mt-md-0 floatr">
+          <input class="form-control mr-sm-2 bg-dark" type="text" placeholder="sign up for latest news" aria-label="newsletter">
+          <button class="btn btn-outline-info my-2 my-sm-0" type="submit">search</button>
+        </form>
+      </div> <!-- .col-lg-6 -->
+       </div> <!-- row top-margin -->
+    </div>  <!-- .container -->
+    <section class="bg-dark">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <span color="#eeeeee">
+              FOLLOW US : TWITTER | FACEBOOK | YOUTUBE
+              <span></div>
+              <!-- .col-lg-6 -->
+              <div class="col-lg-6">
+                <span color="#eeeeee">
+                  2018 &copy SuperxSchool
+                  <span></div>
+                  <!-- .col-lg-6 -->
+
+                </footer>
+
+```
+
+SESSION 4
+set up search functionality
+search：route，search template，controller，model；
+changesearch form to ruby syntax
+add custom counter for number of mission articles
+matching the search input
+complete an exercise for counter to next time
