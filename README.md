@@ -499,3 +499,252 @@ changesearch form to ruby syntax
 add custom counter for number of mission articles
 matching the search input
 complete an exercise for counter to next time
+
+修改 root 路由器的变量
+```
+Rails.application.routes.draw do
+  root "missions#index"
+  resources :missions do
+    collection do
+      git :search #create a route for search!
+    end
+  end
+end
+```
+
+app/views/shared/-footer.html.erb
+```
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+      </div>
+      <!-- .col-lg-3 -->
+
+      <div class="col-lg-3">
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+      </div>
+      <!-- .col-lg-3 -->
+
+      <div class="col-lg-3">
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+        <h5>hello footer</h5>
+      </div>
+      <!-- .col-lg-3 -->
+
+    </div>
+    <!-- .row -->
+    <div class="row top-margin bottom-margin">
+      <div class="col-lg-6">
+        <form class="form-inline mt-2 mt-md-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="sign up for latest news" aria-label="newsletter">
+          <button class="btn btn-outline-info my-2 my-sm-0" type="submit">sunmit</button>
+        </form>
+      </div>  <!-- .col-lg-6 -->
+      <div class="col-lg-6">
+       <div class="form-control mr-2 mt-md-0 floatr">
+         <% form_tag search_missions_path, method: :get do %>
+         <% text_field_tag :search, nil, placeholder: "seacrch rocketz" %>
+         <%= submit_tag "search", class:"btn btn-outline-info my-2 my-sm-0" %>
+         <% end %>
+       </div>
+
+        <!--<form class="form-inline mt-2 mt-md-0 floatr">
+          <input class="form-control mr-sm-2 bg-dark" type="text" placeholder="sign up for latest news" aria-label="newsletter">
+          <button class="btn btn-outline-info my-2 my-sm-0" type="submit">search</button>
+        </form> -->
+      </div> <!-- .col-lg-6 -->
+       </div> <!-- row top-margin -->
+    </div>  <!-- .container -->
+    <section class="bg-dark">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <span color="#eeeeee">
+              FOLLOW US : TWITTER | FACEBOOK | YOUTUBE
+              <span></div>
+              <!-- .col-lg-6 -->
+              <div class="col-lg-6">
+                <span color="#eeeeee">
+                  2018 &copy SuperxSchool
+                  <span></div>
+                  <!-- .col-lg-6 -->
+
+                </footer>
+
+```
+
+session 4
+set up serach functionality
+search : route,search template,controller,model
+change search  form to ruby syntax
+add custom counter for number of mission articles matching the search input
+complete an exercise for counter to next time
+
+.count method
+certain methods can give an intruder access to the database - better with custom code
+
+config/routes.rb
+```
+Rails.application.routes.draw do
+  root "missions#index"
+  resources :missions do
+    collection do
+      get :search #create a route for search!
+    end
+  end
+end
+```
+
+app/controllers/missions_controller.rb
+```
+class MissionsController < ApplicationController
+  before_action :set_mission, only: [:show, :edit, :update, :destroy]
+
+  # GET /missions
+  # GET /missions.json
+  def index
+    @missions = Mission.all.order("created_at DESC".LIMIT(3))
+  end
+
+  # GET /missions/1
+  # GET /missions/1.json
+  def show
+  end
+
+  def search
+    if params[:search].block?
+      @mission = Mission.all.order("created_at DESC".LIMIT(20))
+    else
+     @mission = Mission.search(params)
+    end
+  end
+  # GET /missions/new
+  def new
+    @mission = Mission.new
+  end
+
+  # GET /missions/1/edit
+  def edit
+  end
+
+  # POST /missions
+  # POST /missions.json
+  def create
+    @mission = Mission.new(mission_params)
+
+    respond_to do |format|
+      if @mission.save
+        format.html { redirect_to @mission, notice: 'Mission was successfully created.' }
+        format.json { render :show, status: :created, location: @mission }
+      else
+        format.html { render :new }
+        format.json { render json: @mission.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /missions/1
+  # PATCH/PUT /missions/1.json
+  def update
+    respond_to do |format|
+      if @mission.update(mission_params)
+        format.html { redirect_to @mission, notice: 'Mission was successfully updated.' }
+        format.json { render :show, status: :ok, location: @mission }
+      else
+        format.html { render :edit }
+        format.json { render json: @mission.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /missions/1
+  # DELETE /missions/1.json
+  def destroy
+    @mission.destroy
+    respond_to do |format|
+      format.html { redirect_to missions_url, notice: 'Mission was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_mission
+      @mission = Mission.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def mission_params
+      params.require(:mission).permit(:title, :subtitle, :boxtitle, :boxinfo,
+                                      :banner, :picone, :pictwo, :video, :audio)
+    end
+end
+
+```
+app/views/missions/search.html.erb
+```
+<section class="container">
+  <div class="row">
+    <div class="col"></div>
+      <div class="col-md-10" style="margin-bottom:1rem;">
+        <h2 style="margin-top:2rem;"><u>Your search result</u></h2>
+        <table class="table table-hover table-striped table-responsive">
+          <thead>
+
+          </thead>
+
+          <tbody>
+            <% c = 0 %>
+            <% @missions.each do |mission| %>
+            <tr>
+              <td>
+                <% if mission.picone.present? %>
+                <%= image_tag mission.picone.url(:thumb), stle:"width:100%;" %>
+                <% else %>
+                No Image
+                <% end %>
+              </td>
+              <td><%= mission.boxtitle %></td>
+              <td><%= truncate(mission.boxinfo, length:100) %></td>
+              <td><%= link_to 'LEADL MORE', mission %></td>
+            </tr>
+            <% c = c + 1 %>
+            <% end %>
+            <h4> there are <%= c %> containing your search! </h4>
+          </tbody>
+        </table>
+
+      </div><!-- .col-md-10 -->
+      <div class="col"></div>
+    </div><!-- row -->
+</section>
+
+```
+app/models/mission.rb
+```
+class Mission < ApplicationRecord
+# picone validation
+has_attached_file :picone, styles: { large: "1500x500>", medium: "500x400>", thumb: "200x150#" }
+validates_attachment_content_type :picone, content_type: /\Aimage\/.*\z/
+end
+#for searching
+def self.search(params)
+  mission =Mission.where("title LINK ? or subtitle LINK ? or boxtitle LINK ？ or boxinfo LINK ？"),
+  "%#{params[:search]}%","%#{params[:search]}%","%#{params[:search]}%",
+  "%#{params[:search]}%", ) if params[:search].present?
+  missions
+end
+```
