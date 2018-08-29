@@ -1,7 +1,8 @@
 # Build a Space X clone
 
 brew install ffmpeg
-![SuperxSchool](https://ws3.sinaimg.cn/large/0069RVTdgy1fuqa7wvm0cj31kw0s0wiw.jpg)
+![SuperxSchool](https://ws1.sinaimg.cn/large/006tNbRwgy1fuqdj0idotj31kw0s57l9.jpg)
+![SuperxSchool](https://ws1.sinaimg.cn/large/006tNbRwgy1fuqdj0idotj31kw0s57l9.jpg)
 
 SESSION 1
 ```
@@ -133,7 +134,7 @@ app/views/missions/-form.html.erb
 
   <div class="field">
     <%= form.label :picone %>
-    <%= form.text_field :picone %>
+    <%= form.file_field :picone %>
   </div>
 
 
@@ -146,6 +147,7 @@ app/views/missions/-form.html.erb
     <%= form.submit %>
   </div>
 <% end %>
+
 
 ```
 
@@ -172,11 +174,11 @@ app/views/missions/index.html.erb
       <tr>
         <td><%= mission.title %></td>
         <td>
-          <% if mission.picone.present? %>
-          <% image_tag mission.picone.url(:thumb) %>
-          <% else %>
-          No Image
-          <% end %>
+        <% if mission.picone.present? %>
+        <%= image_tag mission.picone.url(:thumb), style:"width:100%;" %>
+        <% else %>
+        No Image
+        <% end %>
         </td>
         <td><%= mission.subtitle %></td>
         <td><%= mission.boxtitle %></td>
@@ -210,7 +212,7 @@ app/views/missions/show.html.erb
 <p>
   <strong>Boxtitle:</strong>
   <% if @mission.picone.present? %>
-  <%= image_tag（@mission.picone.(:medium)) %>
+  <%= image_tag @mission.picone.url(:medium) %>
   <% else %>
   No Image
   <% end %>
@@ -224,6 +226,8 @@ app/views/missions/show.html.erb
 <%= link_to 'Edit', edit_mission_path(@mission) %> |
 <%= link_to 'Back', missions_path %>
 ```
+
+
 
 #在第一单元的训练当中，我们主要完成了两个核心功能的制作：
 >1、基本博客的功能体系
