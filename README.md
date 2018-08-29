@@ -2,7 +2,7 @@
 
 brew install ffmpeg
 ![SuperxSchool](https://ws1.sinaimg.cn/large/006tNbRwgy1fuqdj0idotj31kw0s57l9.jpg)
-![SuperxSchool](https://ws1.sinaimg.cn/large/006tNbRwgy1fuqdj0idotj31kw0s57l9.jpg)
+![SuperxSchool](https://ws2.sinaimg.cn/large/006tNbRwgy1fuqdj01ujfj31kw0r41kx.jpg)
 
 SESSION 1
 ```
