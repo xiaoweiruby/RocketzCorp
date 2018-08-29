@@ -5,8 +5,8 @@ validates_attachment_content_type :picone, content_type: /\Aimage\/.*\z/
 end
 #for searching
 def self.search(params)
-  mission =Mission.where("title LINK ? or subtitle LINK ? or boxtitle LINK ？ or boxinfo LINK ？"),
-  "%#{params[:search]}%","%#{params[:search]}%","%#{params[:search]}%",
-  "%#{params[:search]}%", ) if params[:search].present?
-  missions
+  #mission =Mission.where("title LINK ? or subtitle LINK ? or boxtitle LINK ？ or boxinfo LINK ？"),
+  #{}"%#{params[:search]}%","%#{params[:search]}%","%#{params[:search]}%",
+#  "%#{params[:search]}%", ) if params[:search].present?
+  #missions
 end
