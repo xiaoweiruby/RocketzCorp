@@ -1,5 +1,8 @@
 # Build a Space X clone
 
+brew install ffmpeg
+![SuperxSchool](https://ws3.sinaimg.cn/large/0069RVTdgy1fuqa7wvm0cj31kw0s0wiw.jpg)
+
 SESSION 1
 ```
 Will use the Terminal and Atom as text editor
@@ -776,3 +779,34 @@ rake seed:db, 完成数据的全部的填充；
 所以在我们完成功能的打造的时候，其实都是使用这个操作的流程来完成，从而完成代码的推送和云端功能的迭代，在这个过程中，会产生大量的数据，需要使用云端的服务器来保存我们的数据，从而完成价值体系的交换。
 
 在互联网的世界里面，其实数据就是货币，具备大量有价值的数据，就具备了流量，具备流量的产品就可以具备子简单的广告价值，从而完成产品的最简单的利润的获取。
+
+
+session 6
+last time : asked you to generate about 25 boxes
+add custom pagination(no gem)
+next and previous buttons
+modify controller and view
+add an extra seach form on missionlist page
+
+在这个章节的核心在于优化 list 的检索的功能体系，属于一个不断的优化的过程。
+回顾其中的核心的框架来说，其实在第一章节里面就基本上完成了整个框架模型的搭建，所以一般情况下如果想要快速的完成一个产品的开发，在经验非常足的情况下， 的确可以在一个星期的时间就上线第一版的原型，如果一个产品一直不可以完成快速的开发，只能说明我们在完成开发的时候，思考的太多余复杂，其实本身就是一个不对的过程。
+
+
+session 7
+
+continue with the custom pagination
+display the page numer and total number of pages
+use division and division-modulo
+modulo is a divisin property - diplays the reminder
+talk about interger and float （decimal） methods
+
+a mathematical operator - related to division
+the answer is the remainder of a divisin
+
+ex: 6 divided by 3 = 2(6/3 = 2)
+no remaider > modulo = 0
+
+ex:5/2 =2.5 >
+integer or decimal remainder:
+integer:5 % 2 = 1
+decimal(float): 5% 2.0 = 0.5
