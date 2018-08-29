@@ -16,7 +16,7 @@
 <p>
   <strong>Boxtitle:</strong>
   <% if @mission.picone.present? %>
-  <%= image_tag（@mission.picone.(:medium)) %>
+  <%= image_tag @mission.picone.url(:medium) %>
   <% else %>
   No Image
   <% end %>
